@@ -1,123 +1,207 @@
-![](assets/long_banner.png)
+<h1>GHunt — Google OSINT Recon Tool</h1>
+<img alt="GHunt banner" src="https://github.com/user-attachments/assets/4ef7125a-e307-4fe3-aa17-b5b6e5591476" style="max-width:100%;height:auto;" />
 
-<br>
+Modern, cross-platform fork of GHunt focused on cleaner docs, easier setup, and faster OSINT workflows.
+GHunt helps you discover Google account footprints (emails, Drive/docs metadata, Maps contributions, photos, IDs, and more) using passive techniques — no Google login required.
 
-#### 🌐 GHunt Online version : https://osint.industries
-#### 🐍 Now Python 3.13 compatible !
+Disclaimer: Use this tool responsibly. Only investigate accounts you are authorized to analyze. Misuse can violate laws and service terms.
 
-<br>
+Table of Contents
 
-![Python minimum version](https://img.shields.io/badge/Python-3.10%2B-brightgreen)
+What is GHunt?
 
-# 😊 Description
+Key Features
 
-GHunt (v2) is an offensive Google framework, designed to evolve efficiently.\
-It's currently focused on OSINT, but any use related with Google is possible.
+Quick Start
 
-Features :
-- CLI usage and modules
-- Python library usage
-- Fully async
-- JSON export
-- Browser extension to ease login
+Clone
 
-# ✔️ Requirements
-- Python >= 3.10
+Linux (recommended)
 
-# ⚙️ Installation
+Windows
 
-```bash
-$ pip3 install pipx
-$ pipx ensurepath
-$ pipx install ghunt
-```
-It will automatically use venvs to avoid dependency conflicts with other projects.
+Setup (Cookies)
 
-# 💃 Usage
+Usage
 
-## Login
+Examples
 
-First, launch the listener by doing `ghunt login` and choose between 1 of the 2 first methods :
-```bash
-$ ghunt login
+Project Structure
 
-[1] (Companion) Put GHunt on listening mode (currently not compatible with docker)
-[2] (Companion) Paste base64-encoded cookies
-[3] Enter manually all cookies
+Why this fork?
 
-Choice =>
-```
+Contributing
 
-Then, use GHunt Companion to complete the login.
+License
 
-The extension is available on the following stores :\
-\
-[![Firefox](https://files.catbox.moe/5g2ld5.png)](https://addons.mozilla.org/en-US/firefox/addon/ghunt-companion/)&nbsp;&nbsp;&nbsp;[![Chrome](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png)](https://chrome.google.com/webstore/detail/ghunt-companion/dpdcofblfbmmnikcbmmiakkclocadjab)
+Maintainer
 
-## Modules
+What is GHunt?
 
-Then, profit :
-```bash
-Usage: ghunt [-h] {login,email,gaia,drive,geolocate} ...
+GHunt ek powerful OSINT tool hai jo public Google footprint data extract karta hai.
+Is fork ka main focus hai:
 
-Positional Arguments:
-  {login,email,gaia,drive,geolocate}
-    login               Authenticate GHunt to Google.
-    email               Get information on an email address.
-    gaia                Get information on a Gaia ID.
-    drive               Get information on a Drive file or folder.
-    geolocate           Geolocate a BSSID.
-    spiderdal           Find assets using Digital Assets Links.
+Easy installation
 
-Options:
-  -h, --help            show this help message and exit
-```
+Cross-platform compatibility
 
-📄 You can also use --json with email, gaia, drive and geolocate modules to export in JSON ! Example :
+Clean Docs
 
-```bash
-$ ghunt email <email_address> --json user_data.json
-```
+Beginner-friendly flow
 
-**Have fun 🥰💞**
+Updated structure
 
-# 🧑‍💻 Developers
+Use cases: cybersecurity learning, digital investigations, bug bounty reconnaissance, privacy research, DFIR.
 
-📕 I started writing some docs [here](https://github.com/mxrch/GHunt/wiki) and examples [here](https://github.com/mxrch/GHunt/tree/master/examples), feel free to contribute !
+Key Features
 
-To use GHunt as a lib, you can't use pipx because it uses a venv.\
-So you should install GHunt with pip :
-```bash
-$ pip3 install ghunt
-```
+Google account metadata discovery
 
-And now, you should be able to `import ghunt` in your projects !\
-You can right now play with the [examples](https://github.com/mxrch/GHunt/tree/master/examples).
+Photos / Picasa info extraction
 
-# 📮 Details
+Google Maps contribution lookup
 
-## Obvious disclaimer
+Google Drive / Docs metadata recon
 
-This tool is for educational purposes only, I am not responsible for its use.
+Token (cookie)-based Google session analyzer
 
-## Less obvious disclaimer
+CLI-based fast workflow
 
-This project is under [AGPL Licence](https://choosealicense.com/licenses/agpl-3.0/), and you have to respect it.\
-**Use it only in personal, criminal investigations, pentesting, or open-source projects.**
+Runs on both Linux & Windows
 
-## Thanks
+Quick Start
+<h3 id="clone">1. Clone the repository</h3>
+git clone https://github.com/nitinscodehub/GHunt.git
+cd GHunt
 
-- [novitae](https://github.com/novitae) for being my Python colleague
-- All the people on [Malfrats Industries](https://discord.gg/sg2YcrC6x9) and elsewhere for the beta test !
-- The HideAndSec team 💗 (blog : https://hideandsec.sh)
-- [Med Amine Jouini](https://dribbble.com/jouiniamine) for his beautiful rework of the Google logo, which I was inspired by *a lot*.
+🐧 <h3 id="linux-recommended">2. Linux (Kali/Ubuntu/Parrot)</h3>
+Install Python + venv
+sudo apt update -y
+sudo apt install python3 python3-pip python3-venv -y
 
-## Sponsors
+Create environment
+python3 -m venv venv
+source venv/bin/activate
 
-Thanks to these awesome people for supporting me !
+Install requirements
+pip install -r requirements.txt
 
-<!-- sponsors --><a href="https://github.com/BlWasp"><img src="https://github.com/BlWasp.png" width="50px" alt="BlWasp" /></a>&nbsp;&nbsp;<a href="https://github.com/gingeleski"><img src="https://github.com/gingeleski.png" width="50px" alt="gingeleski" /></a>&nbsp;&nbsp;<!-- sponsors -->
+🪟 <h3 id="windows">3. Windows</h3>
+Install Python 3.10+
 
-\
-You like my work ?\
-[Sponsor me](https://github.com/sponsors/mxrch) on GitHub ! 🤗
+From: https://www.python.org/downloads
+
+(❗ Make sure “Add to PATH” is enabled)
+
+Clone repo
+git clone https://github.com/nitinscodehub/GHunt.git
+cd GHunt
+
+Create virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+Install dependencies
+pip install -r requirements.txt
+
+<h2 id="setup-cookies">Setup (Cookies)</h2>
+
+Some GHunt features require a browser session cookie export from Chrome/Edge.
+
+How to export cookies
+
+Open Chrome → Press F12
+
+Application → Cookies → https://google.com
+
+Export as JSON
+
+Save as:
+
+cookies.json
+
+
+Place file in project root.
+
+⚠️ Security Note: Never commit or upload cookies.json.
+
+<h2 id="usage">Usage</h2>
+Email lookup
+python3 ghunt email example@gmail.com
+
+Google ID lookup
+python3 ghunt id 12345678901234567890
+
+Picasa / Photos scan
+python3 ghunt picasa example@gmail.com
+
+Help menu
+python3 ghunt --help
+
+<h2 id="examples">Examples</h2>
+python3 ghunt email xyz@gmail.com
+python3 ghunt id 104938475938475
+python3 ghunt picasa example@gmail.com
+
+<h2 id="project-structure">Project Structure</h2>
+GHunt/
+├── ghunt                 # Main CLI script
+├── assets                # Banners / Images
+├── examples              # Example data
+├── main.py               # Entry point (if used)
+├── pyproject.toml        # Dependencies
+├── README.md             # This README
+├── cookies.json          # User-provided file (ignored)
+└── venv/                 # Optional Python environment
+
+<h2 id="why-this-fork">Why this fork?</h2>
+
+Cleaner, modern README
+
+Better user flow
+
+Updated for Linux/Windows
+
+Simplified installation
+
+Ready for teaching, OSINT labs, and cyber training
+
+<h2 id="contributing">Contributing</h2>
+
+Fork the repo
+
+Create a branch
+
+Submit a PR
+
+Keep commits focused
+
+Never commit cookies.json or secrets
+
+<h2 id="license">License</h2>
+
+MIT License — open-source & free to use.
+
+<h2 id="maintainer">Maintainer</h2>
+
+Nitin (@nitinscodehub)
+Cybersecurity & OSINT Enthusiast
+GitHub: https://github.com/nitinscodehub
+
+⚠️ Ethical Use Disclaimer
+
+This tool is strictly for:
+
+Ethical Hacking
+
+Cybersecurity Research
+
+OSINT Learning
+
+Digital Forensics (DFIR)
+
+Auditing Your Own Accounts
+
+❗ Misuse = Your responsibility
+❗ Illegal use can lead to legal action
+❗ Always take consents & respect privacy
