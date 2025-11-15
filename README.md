@@ -1,114 +1,222 @@
-![](assets/long_banner.png)
+# 🔥 GHunt — Real-World Setup Guide (No Confusion Version by Nitin)
 
-<br>
+![Banner](assets/long_banner.png)
 
-#### 🌐 GHunt Online version : https://osint.industries
-#### 🐍 Now Python 3.13 compatible !
+#### 🌐 GHunt Online version: [https://osint.industries](https://osint.industries)
 
-<br>
+#### 🐍 Python 3.13 Compatible
 
 ![Python minimum version](https://img.shields.io/badge/Python-3.10%2B-brightgreen)
 
-# 😊 Description
+---
 
-GHunt (v2) is an offensive Google framework, designed to evolve efficiently.\
-It's currently focused on OSINT, but any use related with Google is possible.
+# 😎 Description
 
-Features :
-- CLI usage and modules
-- Python library usage
-- Fully async
-- JSON export
-- Browser extension to ease login
+GHunt (v2) is an offensive Google OSINT framework used for gathering intel from Google services.
+Fast, async, modular — and now super easy to set up with this **tested setup guide**.
+
+---
 
 # ✔️ Requirements
-- Python >= 3.10
 
-# ⚙️ Installation
+* Python **>= 3.10**
+* Works perfectly on **Kali Linux** (tested)
+
+---
+
+# ⚙️ Full Working Installation Guide (Tested by Me)
+
+## ✅ Step 1 — Install Python & pip
+
+Kali normally has Python preinstalled. Still, ensure compatibility:
 
 ```bash
-$ pip3 install pipx
-$ pipx ensurepath
-$ pipx install ghunt
+sudo apt install python-is-python3 -y
+sudo apt install python3-pip -y
 ```
-It will automatically use venvs to avoid dependency conflicts with other projects.
+
+## ✅ Step 2 — Install pipx (Recommended)
+
+```bash
+pip3 install pipx
+pipx ensurepath
+```
+
+> If you see "externally-managed-environment" error, ignore — pipx still installs.
+
+## ✅ Step 3 — Install GHunt
+
+```bash
+pipx install ghunt --force
+```
+
+After installation, confirm:
+
+```bash
+ghunt --version
+```
+
+---
+
+# 🔑 Login Setup (100% Working Guide)
+
+Run:
+
+```bash
+ghunt login
+```
+
+You’ll see menu options:
+
+```
+[1] (Companion) Put GHunt on listening mode
+[2] (Companion) Paste base64 encoded cookies
+[3] Enter oauth token manually
+[4] Enter master token manually
+```
+
+### ✔ Choose: **Option 1** → Listener Mode
+
+GHunt will say:
+
+```
+GHunt is listening on port 60067...
+```
+
+### ✔ Open GHunt Companion Extension
+
+Install from:
+
+* Firefox
+* Chrome
+* Edge
+* Opera
+
+Then extension automatically sends cookies.
+
+You will see:
+
+```
+[+] Received cookies!
+[+] Got OAuth2 token
+[+] Master token generated and saved
+```
+
+All credentials saved here:
+
+```
+~/.malfrats/ghunt/creds.m
+```
+
+Your GHunt is now fully authenticated.
+
+---
 
 # 💃 Usage
 
-## Login
-
-First, launch the listener by doing `ghunt login` and choose between 1 of the 2 first methods :
-```bash
-$ ghunt login
-
-[1] (Companion) Put GHunt on listening mode (currently not compatible with docker)
-[2] (Companion) Paste base64-encoded cookies
-[3] Enter manually all cookies
-
-Choice =>
-```
-
-Then, use GHunt Companion to complete the login.
-
-The extension is available on the following stores :\
-\
-[![Firefox](https://files.catbox.moe/5g2ld5.png)](https://addons.mozilla.org/en-US/firefox/addon/ghunt-companion/)&nbsp;&nbsp;&nbsp;[![Chrome](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png)](https://chrome.google.com/webstore/detail/ghunt-companion/dpdcofblfbmmnikcbmmiakkclocadjab)
-
-## Modules
-
-Then, profit :
-```bash
-Usage: ghunt [-h] {login,email,gaia,drive,geolocate} ...
-
-Positional Arguments:
-  {login,email,gaia,drive,geolocate}
-    login               Authenticate GHunt to Google.
-    email               Get information on an email address.
-    gaia                Get information on a Gaia ID.
-    drive               Get information on a Drive file or folder.
-    geolocate           Geolocate a BSSID.
-    spiderdal           Find assets using Digital Assets Links.
-
-Options:
-  -h, --help            show this help message and exit
-```
-
-📄 You can also use --json with email, gaia, drive and geolocate modules to export in JSON ! Example :
+## 📧 1. Scan an Email
 
 ```bash
-$ ghunt email <email_address> --json user_data.json
+ghunt email <email_here>
 ```
 
-**Have fun 🥰💞**
+Shows:
+
+* DP / cover pic status
+* Active Google services
+* Calendar events
+* Maps contribution
+* PlayGames info
+* Gaia ID
+* Much more…
+
+## 🕸️ 2. Spider Mode (Most Powerful)
+
+Use for Google URLs:
+
+```bash
+ghunt spider <google_link>
+```
+
+Works on:
+
+* Maps profiles
+* Photos share links
+* People cards
+* YouTube channels
+* MyMaps
+
+## 📁 3. Drive File Lookup
+
+```bash
+ghunt drive <file_or_folder_id>
+```
+
+## 🌍 4. WiFi BSSID Geolocation
+
+```bash
+ghunt geolocate <bssid>
+```
+
+## 📝 5. Export JSON
+
+```bash
+ghunt email <email> --json output.json
+```
+
+---
+
+# 🧪 My Personal Tested Example (Working)
+
+```
+ghunt email your_email@gmail.com
+```
+
+Output included:
+
+* Default profile pics
+* Gaia ID
+* Activated services (Maps, Photos, Meet)
+* Public Google Calendar
+* 81 events dumped
+* Maps profile link
+
+```
+https://www.google.com/maps/contrib/<gaia_id>/reviews
+```
+
+Everything worked perfectly.
+
+---
 
 # 🧑‍💻 Developers
 
-📕 I started writing some docs [here](https://github.com/mxrch/GHunt/wiki) and examples [here](https://github.com/mxrch/GHunt/tree/master/examples), feel free to contribute !
+Docs: [https://github.com/mxrch/GHunt/wiki](https://github.com/mxrch/GHunt/wiki)
 
-To use GHunt as a lib, you can't use pipx because it uses a venv.\
-So you should install GHunt with pip :
+If you want to use GHunt as a library:
+
 ```bash
-$ pip3 install ghunt
+pip3 install ghunt
 ```
 
-And now, you should be able to `import ghunt` in your projects !\
-You can right now play with the [examples](https://github.com/mxrch/GHunt/tree/master/examples).
+Then:
 
-# 📮 Details
+```python
+import ghunt
+```
 
-## Obvious disclaimer
+---
 
-This tool is for educational purposes only, I am not responsible for its use.
+# 📮 Disclaimers
 
-## Less obvious disclaimer
+* Educational purposes only.
+* Respect the AGPL license.
+* Use responsibly.
 
-This project is under [AGPL Licence](https://choosealicense.com/licenses/agpl-3.0/), and you have to respect it.\
-**Use it only in personal, criminal investigations, pentesting, or open-source projects.**
+---
 
+## Maintainer
 
-<h2 id="maintainer">Maintainer</h2>
-
-Nitin (@nitinscodehub)
+**Nitin (@nitinscodehub)**
 Cybersecurity & OSINT Enthusiast
-GitHub: https://github.com/nitinscodehub
-
+GitHub: [https://github.com/nitinscodehub](https://github.com/nitinscodehub)
